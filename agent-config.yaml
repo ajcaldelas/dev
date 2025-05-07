@@ -1,0 +1,74 @@
+apiVersion: v1beta1
+kind: AgentConfig
+rendezvousIP: 10.216.176.248 # IP address of the rendezvous host (control-z)
+hosts:
+- hostname: control-z
+  role: master # Corrected role from 'control-plane' to 'master'
+  # Ensure this MAC address is correct for eno8303 on this host
+  interfaces:
+  - macAddress: f4:02:70:d6:f2:b4
+    name: eno8303
+  networkConfig:
+    interfaces:
+      - name: eno8303
+        ipv4:
+          enabled: true
+          # Corrected format for ipv4 address
+          address:
+            - ip: 10.216.176.248
+              prefix-length: 22
+          dhcp: false
+    # Corrected structure for routes
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          # Corrected field names for the route
+          next-hop-interface: eno8303 # Interface with the configured IP
+          next-hop-address: 10.216.179.254 # Using the assumed gateway
+    dns-resolver:
+      config:
+        # Corrected nameserver field name
+        server:
+          - 10.218.15.1
+          - 10.218.15.2
+  # Correct way to specify the installation disk
+  rootDeviceHints:
+    deviceName: "/dev/sdb" # Ensure this is the correct installation disk for this host
+- hostname: migration-worker-1.amd.com
+  role: worker
+  # Ensure this MAC address is correct for ens13f0 on this host
+  interfaces:
+  - macAddress: 00:62:0b:4c:30:ee
+    name: ens13f0
+  - macAddress: 00:62:0b:4c:30:ef
+    name: ens13f1
+  networkConfig:
+    interfaces:
+      - name: ens13f0
+        ipv4:
+          enabled: true
+          # Corrected format for ipv4 address
+          address:
+            - ip: 10.216.178.118
+              prefix-length: 22
+          dhcp: false
+      - name: ens13f1
+        state: down
+        ipv4:
+          enabled: false
+    # Corrected structure for routes
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          # Corrected field names for the route
+          next-hop-interface: ens13f0 # Interface with the configured IP
+          next-hop-address: 10.216.179.254 # Using the assumed gateway
+    dns-resolver:
+      config:
+        # Corrected nameserver field name
+        server:
+          - 10.218.15.1
+          - 10.218.15.2
+  # Correct way to specify the installation disk
+  rootDeviceHints:
+    deviceName: "/dev/sda" # Ensure this is the correct installation disk for this host

@@ -1,0 +1,5 @@
+migration-worker-1.amd.com
+migration-worker-2.amd.com
+migration-worker-3.amd.com
+migration-worker-4.amd.com
+migration-worker-i1.amd.com

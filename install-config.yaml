@@ -1,0 +1,32 @@
+apiVersion: v1
+baseDomain: amd.com
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  replicas: 3
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: <CHANGEME>
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.216.176.0/22
+  networkType: OVNKubernetes 
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  baremetal:
+    apiVIPs:
+      # CHANGME
+      - 10.216.176.3
+    ingressVIPs:
+      - 10.216.176.4
+pullSecret: ''
+sshKey: |
