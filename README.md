@@ -27,15 +27,15 @@
 
 3. Modify the Install config, you MUST include the following:
   
-  - API VIP and the Ingress VIP
-
-  - Cluster Name
-
-  - MachineNetwork needs to match the subnet you will have the machines on
-
-  - The Pull Secret
-
-  - Authorized SSH Keys for node access
+    - API VIP and the Ingress VIP
+  
+    - Cluster Name
+  
+    - MachineNetwork needs to match the subnet you will have the machines on
+  
+    - The Pull Secret
+  
+    - Authorized SSH Keys for node access
 
 3. Run the OCP Install script, this will generate the agent ISO needed for installing the cluster. The iso is located under install/agent.x86_64.iso. This script will also attempt to copy the ISO to a web server. Change the script to reflect this
   `./ocp-install.sh`
