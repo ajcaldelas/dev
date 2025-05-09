@@ -45,6 +45,7 @@
 ## Mounting
 
 1. The scripts directory contains scripts directory to setup lenovo boxes, you will need to mount the ISO manually or set up the remote virtual media manually.
+    - Each script contains a list of servers, if your servers don't match up either add them or remove them.
 
 2. To run any of the redfish scripts you need to export the `REDFISH_USER` and `REDFISH_PASSWORD`
     a. these scripts assume they all use the same user, so make sure this matches up or the scripts will fail
@@ -54,5 +55,6 @@
 4. Run the `REDFISH_USER=<user> REDFISH_PASSWORD=<password> redfish-cleanup.sh`
 
 5. Run the `REDFISH_USER=<user> REDFISH_PASSWORD=<password> redfish-virtual-media.sh`
+    - NOTE: You need to change the `ISO_URL` in this script if you have web server if you don't you can't run this script.
 
 TODOs: Need to add redfish setup for iDRACs
