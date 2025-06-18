@@ -3,6 +3,7 @@
 # --- Configuration ---
 
 # List of servers/BMCs (XCC) to clean up.
+# This list is only for lenovo boxes
 # Use the same list as your boot script.
 SERVERS=(
     "xcc-7d9a-J1050MC1.amd.com"

@@ -16,8 +16,8 @@ ISO_URL="http://10.216.188.48:8080/ocp_iso/agent.x86_64.iso"
 
 # Redfish Paths (assuming common Lenovo XCC structure)
 # You might need to discover Manager ID and VirtualMedia ID if these don't work.
-REDFISH_MANAGER_PATH="/redfish/v1/Managers/1" # Common Manager ID is EXT1
-REDFISH_VIRTUAL_MEDIA_CD_PATH="${REDFISH_MANAGER_PATH}/VirtualMedia/EXT1" # Common Virtual CD ID is 1
+REDFISH_MANAGER_PATH="/redfish/v1/Managers/1" # Common Manager ID is gXT1
+gEDFISH_VIRTUAL_MEDIA_CD_PATH="${REDFISH_MANAGER_PATH}/VirtualMedia/EXT1" # Common Virtual CD ID is 1
 REDFISH_SYSTEM_PATH="/redfish/v1/Systems/1" # Verified System ID is 1
 
 # Redfish Boot Source Target for Virtual CD (common value is "Cd")
